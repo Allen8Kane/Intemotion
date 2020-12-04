@@ -34,7 +34,7 @@
         </mat-panel-title>
       </mat-expansion-panel-header>
       <div formGroupName="firstRound">
-        <div formArrayName="questionsCategories" class="secon-round-container">
+        <div formArrayName="questionsCategories" class="second-round-container">
           <h3>Категории</h3>
           <mat-accordion class="example-headers-align">
             <mat-expansion-panel *ngFor="let questionsCategory of firstRoundQuestionsCategories.controls; let i = index"
@@ -97,7 +97,7 @@
       </mat-expansion-panel-header>
       <div formArrayName="secondRound">
         <p>Всего вопросов: {{secondRoundForm.controls.length}}</p>
-        <div class="secon-round-container">
+        <div class="second-round-container">
           <div class="form-group " *ngFor="let question of secondRoundForm.controls; let i = index">
             <div [formGroupName]="i" class="full-width" fxLayout="row" fxLayoutAlign="space-between center">
               <div>

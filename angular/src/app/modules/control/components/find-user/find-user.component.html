@@ -7,7 +7,7 @@
       <mat-icon matSuffix>search</mat-icon>
     </mat-form-field>
   </form>
-  <ng-container *ngIf="users &&users.length!=0 ; else empty">
+  <ng-container *ngIf="users && users.length != 0 ; else empty">
     <mat-selection-list role="list" #gamesList (selectionChange)="onUserSelect($event)" [multiple]="false" class="list">
       <ng-container *ngFor="let user of users">
         <mat-list-option [value]="user">

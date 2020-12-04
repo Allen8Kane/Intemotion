@@ -35,71 +35,71 @@ export class PeerConnection {
   styleUrls: ['./camera-main.component.css'],
 })
 export class CameraMainComponent implements OnInit {
-  @ViewChild('myvideo') myVideo: any;
+  // @ViewChild('myvideo') myVideo: any;
 
-  peer;
-  anotherid;
-  mypeerid;
+  // peer;
+  // anotherid;
+  // mypeerid;
 
-  config = {
-    host: 'localhost',
-    port: 9000,
-    path: '/myapp',
-  };
-  constraints = {
-    width: { min: 640, ideal: 640, max: 640 },
-    height: { min: 400, ideal: 400 },
-    aspectRatio: 1.777777778,
-    frameRate: { max: 15 },
-    facingMode: { exact: 'user' },
-  };
+  // config = {
+  //   host: 'localhost',
+  //   port: 9000,
+  //   path: '/myapp',
+  // };
+  // constraints = {
+  //   width: { min: 640, ideal: 640, max: 640 },
+  //   height: { min: 400, ideal: 400 },
+  //   aspectRatio: 1.777777778,
+  //   frameRate: { max: 15 },
+  //   facingMode: { exact: 'user' },
+  // };
 
-  peers: { [index: string]: any };
-  connectionId: string;
-  hub: HubConnection;
-  stream: MediaStream;
-  streams: { [index: string]: MediaStream } = {};
-  get s() {
-    return Object.values(this.streams);
-  }
+  // peers: { [index: string]: any };
+  // connectionId: string;
+  // hub: HubConnection;
+  // stream: MediaStream;
+  // streams: { [index: string]: MediaStream } = {};
+  // get s() {
+  //   return Object.values(this.streams);
+  // }
   constructor() {}
 
   ngOnInit() {
-    this.hub = new HubConnectionBuilder()
-      .withUrl('https://localhost:44346/camera')
-      .build();
-    this.hub.start().then(async () => {
-      this.connectionId = await this.hub.invoke('GetconnectionId');
-      this.stream = await this.getMediaStream();
-      //this.stream.co;
-      this.peer = new Peer('', {
-        host: 'localhost',
-        port: 9000,
-        path: '/myapp',
-      });
+    // this.hub = new HubConnectionBuilder()
+    //   .withUrl('https://localhost:44346/camera')
+    //   .build();
+    // this.hub.start().then(async () => {
+    //   this.connectionId = await this.hub.invoke('GetconnectionId');
+    //   this.stream = await this.getMediaStream();
+    //   //this.stream.co;
+    //   this.peer = new Peer('', {
+    //     host: 'localhost',
+    //     port: 9000,
+    //     path: '/myapp',
+    //   });
 
-      this.peer.on('connection', function (conn) {
-        conn.on('data', function (data) {
-          console.log(data);
-        });
-      });
-      this.peer.on('call', (call) => {
-        // Answer the call, providing our mediaStream
-        call.answer(this.stream);
-      });
-      setTimeout(() => this.hub.invoke('NewConnection'), 3000);
-    });
+    //   this.peer.on('connection', function (conn) {
+    //     conn.on('data', function (data) {
+    //       console.log(data);
+    //     });
+    //   });
+    //   this.peer.on('call', (call) => {
+    //     // Answer the call, providing our mediaStream
+    //     call.answer(this.stream);
+    //   });
+    //   setTimeout(() => this.hub.invoke('NewConnection'), 3000);
+    // });
 
-    this.hub.on('Peer', (peerId: string, connectionId: string) => {
-      const call = this.peer.call(peerId, this.stream);
-      call.on('stream', (stream) => {
-        console.log('stream');
-        this.streams[connectionId] = stream;
-      });
-    });
-    this.hub.on('NewConnection', () =>
-      this.hub.invoke('SendMyPeer', this.peer.id)
-    );
+    // this.hub.on('Peer', (peerId: string, connectionId: string) => {
+    //   const call = this.peer.call(peerId, this.stream);
+    //   call.on('stream', (stream) => {
+    //     console.log('stream');
+    //     this.streams[connectionId] = stream;
+    //   });
+    // });
+    // this.hub.on('NewConnection', () =>
+    //   this.hub.invoke('SendMyPeer', this.peer.id)
+    // );
 
     // this.peer.on('call', function (call) {
     //   n.getUserMedia(
@@ -117,17 +117,17 @@ export class CameraMainComponent implements OnInit {
     //   );
     // });
   }
-  getMediaStream() {
-    return navigator.mediaDevices.getUserMedia({
-      video: {
-        width: { min: 640, ideal: 640 },
-        height: { min: 400, ideal: 640 },
-        aspectRatio: { ideal: 1.7777777778 },
-        frameRate: { max: 15 },
-      },
-      audio: true,
-    });
-  }
+  // getMediaStream() {
+  //   return navigator.mediaDevices.getUserMedia({
+  //     video: {
+  //       width: { min: 640, ideal: 640 },
+  //       height: { min: 400, ideal: 640 },
+  //       aspectRatio: { ideal: 1.7777777778 },
+  //       frameRate: { max: 15 },
+  //     },
+  //     audio: true,
+  //   });
+  // }
   // getMediaStream() {
   //   return navigator.mediaDevices.getUserMedia({
   //     video: true,

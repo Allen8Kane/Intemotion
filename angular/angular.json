@@ -21,7 +21,9 @@
             "aot": true,
             "assets": ["src/favicon.ico", "src/assets"],
             "styles": [{ "input": "src/theme.scss" }, "src/styles.scss"],
-            "scripts": []
+            "scripts": [
+              "src/assets/dependencies/flashphoner/Flashphoner.js"
+            ]
           },
           "configurations": {
             "production": {
