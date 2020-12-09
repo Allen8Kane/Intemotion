@@ -22,7 +22,13 @@
             "assets": ["src/favicon.ico", "src/assets"],
             "styles": [{ "input": "src/theme.scss" }, "src/styles.scss"],
             "scripts": [
-              "src/assets/dependencies/flashphoner/Flashphoner.js"
+              "src/assets/dependencies/jquery/jquery-1.12.0.js",
+              "src/assets/dependencies/jquery/jquery-ui.js",
+              "src/assets/dependencies/jquery/jquery.websocket.js",
+              "src/assets/dependencies/jquery/jquery.json.js",
+              "src/assets/dependencies/js/utils.js",
+              "src/assets/dependencies/flashphoner/flashphoner.js",
+              "src/assets/dependencies/bootstrap/js/bootstrap.min.js"
             ]
           },
           "configurations": {
