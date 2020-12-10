@@ -4,8 +4,8 @@ video:-webkit-full-screen {
 
 .fp-remoteVideo {
     border: 1px double black;
-    width: 322px;
-    height: 242px;
+    width: 150px;
+    height: 100px;
     margin: 0 auto;
 }
 

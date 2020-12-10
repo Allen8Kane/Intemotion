@@ -24,7 +24,15 @@ export class HellofromkzComponent implements OnInit {
   ROOM_EVENT = Flashphoner.roomApi.events;
   PRELOADER_URL = './dependencies/media/preloader.mp4';
   connection;
-  _participants = 15;
+  _participants = 20;
+  DIV_IDS = ['participant1Display','participant2Display',
+  'participant3Display','participant4Display','participant5Display',
+  'participant6Display','participant7Display','participant8Display',
+  'participant7Display','participant8Display','participant9Display',
+  'participant10Display','participant11Display','participant12Display',
+  'participant13Display','participant14Display','participant15Display',
+  'participant16Display','participant17Display','participant18Display',
+  'participant19Display','participant20Display']
 
   ngOnInit(): void {
     this.init_page()
@@ -46,6 +54,7 @@ export class HellofromkzComponent implements OnInit {
 
 
   onJoined(room) {
+    const _this = this;
     $('#joinBtn').text('Leave').off('click').click(function () {
       $(this).prop('disabled', true);
       room.leave().then(this.onLeft, this.onLeft);
